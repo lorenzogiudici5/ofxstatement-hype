@@ -4,7 +4,8 @@
 
 This is a plugin for [ofxstatement](https://github.com/kedder/ofxstatement).
 
-Hype allow to export movements in PDF format only from mobile app. Check instructions [here](https://support.hype.it/hc/it/articles/360005910553-Come-salvare-e-condividere-la-lista-movimenti-di-HYPE
+Hype (Banca Sella) allows to export movements from mobile app: the only format available is PDF.
+
 This plugin converts PDF statement to OFX format, suitable for importing into GnuCash.
 
 ## Installation
@@ -20,8 +21,27 @@ git clone https://github.com/lorenzogiudici5/ofxstatement-hype.git
 python3 setup.py install
 ```
 
-## Usage
-Export your movements from Hype app and then run
+## Configuration
+Add plugin config, running the following command:
+
 ```bash
-$ ofxstatement convert -t hype ec_2023_12.pdf ec_2023_12.ofx
+$ ofxstatement edit-config
+```
+
+Edit the file:
+```
+[hype]
+plugin = hype
+currency = EUR
+account = hype
+```
+
+Save and exit the text editor.
+
+## Usage
+Export your movements from Hype mobile app following the instructions [here](https://support.hype.it/hc/it/articles/360005910553-Come-salvare-e-condividere-la-lista-movimenti-di-HYPE).
+
+Run the followning command:
+```bash
+$ ofxstatement convert -t hype ec_01_12_2023_30_12_2023.pdf ec_2023_12.ofx
 ```
