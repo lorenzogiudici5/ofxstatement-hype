@@ -69,7 +69,7 @@ class HypeTransaction:
 
     def to_statement_line(self):
         statement_line = StatementLine()
-        statement_line.date = self.settlement_date
+        statement_line.date = self.date
         statement_line.amount = self.amount
         statement_line.trntype = self.extract_type(self.type)
         statement_line.memo = self.description
