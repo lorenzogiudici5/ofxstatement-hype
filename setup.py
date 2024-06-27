@@ -37,7 +37,7 @@ setup(
             "hype = ofxstatement.plugins.hype:HypePlugin"
         ]
     },
-    install_requires=["ofxstatement"],
+    install_requires=["ofxstatement", "pandas", "tabula-py", "pypdf2"],
     extras_require={"test": ["pytest"]},
     include_package_data=True,
     zip_safe=True,
