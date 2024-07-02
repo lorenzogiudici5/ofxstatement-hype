@@ -164,8 +164,8 @@ class HypeMovementsPdfStatementParser(StatementParser):
         date = self.parse_value(line["Data Operazione"], "date")
         settlementDate = self.parse_value(line["Data Contabile"], "date")
         if(settlementDate is None):
-            logging.warning(f"'Data Contabile' is null for operation in date: '{date.strftime('%d/%m/%Y')}'. The 'Data Operazione' will be used as 'Data Contabile'")
-            settlementDate = date
+            logging.warning(f"'Data Contabile' is null for operation in date: '{date.strftime('%d/%m/%Y')}'. Ignoring this transaction")
+            return None
     
         income = self.parse_value(line["Accrediti"], "amount")
         outcome = self.parse_value(line["Addebiti"], "amount")
